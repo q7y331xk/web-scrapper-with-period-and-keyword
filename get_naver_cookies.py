@@ -6,6 +6,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from webdriver_manager.chrome import ChromeDriverManager
 import pyperclip
+from config import NAVER_ID, NAVER_PW
 
 
 
@@ -17,11 +18,11 @@ def set_chrome_driver():
 def get_naver_cookies():
     driver = set_chrome_driver()
     driver.get("https://nid.naver.com/nidlogin.login")
-    pyperclip.copy('q7y331xk')
+    pyperclip.copy(NAVER_ID)
     driver.find_element(By.ID,'id').click()
     ActionChains(driver).key_down(Keys.COMMAND).send_keys('v').key_up(Keys.COMMAND).perform()
     sleep(1)
-    pyperclip.copy('f7gh18Sh94#')
+    pyperclip.copy(NAVER_PW)
     driver.find_element(By.ID,'pw').click()
     ActionChains(driver).key_down(Keys.COMMAND).send_keys('v').key_up(Keys.COMMAND).perform()
     sleep(1)
